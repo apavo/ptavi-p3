@@ -11,22 +11,22 @@ class KaraokeLocal(smallsmilhandler.SmallSMILHandler):
 
     def __init__(self, fich):
         parser = make_parser()
-        sHandler = smallsmilhandler.SmallSMILHandler()  
+        sHandler = smallsmilhandler.SmallSMILHandler()
         parser.setContentHandler(sHandler)
         parser.parse(open(fich))
-        self.lista = sHandler.get_tags()    
+        self.lista = sHandler.get_tags()
 
     def __str__(self):
         for etiqueta in self.lista:
             print etiqueta[0],
-            atributos =etiqueta[1]
+            atributos = etiqueta[1]
             for atributo in atributos:
-                print "\t", atributo, "=",atributos[atributo],
+                print "\t", atributo, "=", atributos[atributo],
             print
 
     def do_local(self):
         for etiqueta in self.lista:
-            atributos =etiqueta[1]
+            atributos = etiqueta[1]
             for atributo in atributos:
                 if atributo == "src":
                     os.system("wget -nv " + atributos[atributo])
