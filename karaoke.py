@@ -31,12 +31,12 @@ class KaraokeLocal(smallsmilhandler.SmallSMILHandler):
                 if atributo == "src":
                     os.system("wget -nv " + atributos[atributo])
                     nombre = atributos[atributo].split("/")
-                    print nombre[-1]
-
+                    atributos[atributo] = nombre[-1]
 try:
     fich = sys.argv[1]
     karaoke = KaraokeLocal(fich)
     karaoke.__str__()
     karaoke.do_local()
+    karaoke.__str__()
 except IndexError:
     print "Usage: python karaoke.py file.smil"
