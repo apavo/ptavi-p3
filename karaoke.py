@@ -29,7 +29,7 @@ class KaraokeLocal(smallsmilhandler.SmallSMILHandler):
             atributos = etiqueta[1]
             for atributo in atributos:
                 if atributo == "src":
-                    os.system("wget -nv " + atributos[atributo])
+                    os.system("wget -q " + atributos[atributo])
                     nombre = atributos[atributo].split("/")
                     atributos[atributo] = nombre[-1]
 try:
